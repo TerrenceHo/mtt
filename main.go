@@ -17,9 +17,9 @@ func main() {
 	flag.Parse()
 
 	if *version {
-		fmt.Println(Version)
-		fmt.Println(BuildTime)
-		fmt.Println(GitHash)
+		fmt.Println("mtt, version", Version)
+		fmt.Println("Built at:", BuildTime)
+		fmt.Println("Git hash for verification:", GitHash)
 		os.Exit(0)
 	}
 
