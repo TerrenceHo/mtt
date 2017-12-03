@@ -1,4 +1,4 @@
-BINARY=mtt
+BINARY=qn
 BINARY_PATH=binary
 
 VERSION=0.0.1
@@ -13,19 +13,19 @@ LDFLAGS=-ldflags "-X main.Version=${VERSION} -X main.BuildTime=${BUILD_TIME} -X 
 
 .DEFAULT_GOAL: $(BINARY)
 $(BINARY): $(SOURCES)
-	go build ${LDFLAGS} -o ${BINARY} .
+	go build ${LDFLAGS} -o ${BINARY} -v .
 
-all: linux darwin windows
-	go build ${LDFLAGS} -o ${BINARY} .
+all: linux darwin windows 
+	go build ${LDFLAGS} -o ${BINARY} -v .
 
 linux:
-	GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY_PATH}/${BINARY}-linux-${GOARCH} .
+	GOOS=linux GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY_PATH}/${BINARY}-linux-${GOARCH} -v .
 
 darwin:
-	GOOS=darwin GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY_PATH}/${BINARY}-darwin-${GOARCH} .
+	GOOS=darwin GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY_PATH}/${BINARY}-darwin-${GOARCH} -v .
 
 windows:
-	GOOS=windows GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY_PATH}/${BINARY}-windows-${GOARCH}.exe .
+	GOOS=windows GOARCH=${GOARCH} go build ${LDFLAGS} -o ${BINARY_PATH}/${BINARY}-windows-${GOARCH}.exe -v .
 
 .PHONY: install clean run
 run:
