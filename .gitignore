@@ -1,7 +1,7 @@
 ### Go ###
 # Binaries for programs and plugins
 *.exe
-!mtt-windows-amd64.exe
+!qn-windows-amd64.exe
 *.dll
 *.so
 *.dylib
